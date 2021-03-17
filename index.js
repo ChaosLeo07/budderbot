@@ -10,7 +10,9 @@ const HelpEmbed = new Discord.MessageEmbed()
     .setDescription("Hier findest du alle Befehle, die der Bot versteht.")
     .addField("ping", "Zeigt dir die Aktuelle Latenz an.")
     .addField("warm", "AAAAAAAAAAAAAAAA.")
+    .addField("beep", "boop.")
     .addField("kalt", "brrrrrrrrrrrrrrrrrrr.")
+    .addField("eiskalt", "...lieber nicht xD")
     .addField("server", "Zeigt dir Informationen über den Server an.")
     .addField("help", "Zeigt dir diese Liste an.")
 
@@ -40,12 +42,16 @@ client.on("message", function(message) {
         message.channel.send(`Pong! Die Latenz beträgt im moment ${timeTaken}ms.`);
       }
 
+    
       
     if (command === "help") {
         message.channel.send(HelpEmbed)  
      }
     if (command === "beep") {
         message.channel.send("boop")
+    }
+    if (command === "eiskalt") {
+        message.channel.send("*stirbt*")
     }
 
     if (command === "warm") {
