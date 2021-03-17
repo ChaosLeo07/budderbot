@@ -41,15 +41,15 @@ client.on("message", function(message) {
         const timeTaken = Date.now() - message.createdTimestamp;
         message.channel.send(`Pong! Die Latenz beträgt im moment ${timeTaken}ms.`);
       }
-
-    
-      
+        
     if (command === "help") {
         message.channel.send(HelpEmbed)  
-     }
+    }
+
     if (command === "beep") {
         message.channel.send("boop")
     }
+
     if (command === "eiskalt") {
         message.channel.send("*stirbt*")
     }
@@ -62,7 +62,6 @@ client.on("message", function(message) {
         message.channel.send("brrrrrrr k-k-KALT!")
     }
     
-
     if (command === `server`) {
         message.channel.send(`Serverinfos:\nServername: ${message.guild.name}\nMitgliederzahl: ${message.guild.memberCount}`);
     }
