@@ -99,11 +99,6 @@ client.on("message", function(message) {
         message.channel.send ("Du musst in einem Sprachkanal sein, um diesen Befehl zu benutzen!")
         
     }
-    client.on('typingStart', (channel, user) => {
-        console.log(`${user.username} is typing in ${channel.name}`);
-      });
-
-
 
 });
 
