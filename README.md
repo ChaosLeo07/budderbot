@@ -1,2 +1,0 @@
-# budderbot
-my bot xD
