@@ -15,9 +15,7 @@ const HelpEmbed = new Discord.MessageEmbed()
     .addField("eiskalt", "...lieber nicht xD")
     .addField("server", "Zeigt dir Informationen über den Server an.")
     .addField("help", "Zeigt dir diese Liste an.")
-
-
-    
+  
 client.on('ready', () => {
     console.log('Bot erfolgreich gestartet!');
     client.user.setPresence({
@@ -28,8 +26,6 @@ client.on('ready', () => {
         }
     })
     });
-
-
 
 client.on("message", function(message) {
     if (message.author.bot) return;
