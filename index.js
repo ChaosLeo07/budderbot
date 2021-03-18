@@ -16,7 +16,7 @@ const HelpEmbed = new Discord.MessageEmbed()
     .addField("eiskalt", "...lieber nicht xD")
     .addField("server", "Zeigt dir Informationen über den Server an.")
     .addField("title", "Spielt die Legendäre OOBE-Musik von Windows XP namens title.wma ab.")
-    .addField("end", "keine ahnung was ich hier schreiben soll auf jeden fall verlässt der bot den sprachkanal")
+    .addField("leave", "keine ahnung was ich hier schreiben soll auf jeden fall verlässt der bot den sprachkanal")
 
     .addField("help", "Zeigt dir diese Liste an.")
   
@@ -89,7 +89,7 @@ client.on("message", function(message) {
         message.channel.send("Du musst in einem Sprachkanal sein, um diesen Befehl zu benutzen!")
     }
 
-    if (command === `end`) {
+    if (command === `leave`) {
         if (message.member.voice.channel) {
             const connection = await message.member.voice.channel.join();
             connection.disconnect();
@@ -99,7 +99,9 @@ client.on("message", function(message) {
         message.channel.send ("Du musst in einem Sprachkanal sein, um diesen Befehl zu benutzen!")
         
     }
-
+    client.on('typingStart', (channel, user) => {
+        console.log(`${user.username} is typing in ${channel.name}`);
+      });
 
 
 
