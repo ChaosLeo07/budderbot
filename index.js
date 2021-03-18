@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const config = require("./config.json");
 const client = new Discord.Client();
 const prefix = '$/';
+const fs = require('fs');
 
 
 
@@ -61,8 +62,43 @@ client.on("message", function(message) {
     if (command === `server`) {
         message.channel.send(`Serverinfos:\nServername: ${message.guild.name}\nMitgliederzahl: ${message.guild.memberCount}`);
     }
+
+
+    
    
   });
+
+  client.on('message', async message => {
+	
+    if (message.author.bot) return;
+    if (message.content.startsWith(prefix)) return;
+    const commandBody = message.content.slice(prefix.length);
+    const args = commandBody.split(' ');
+    const command = args.shift().toLowerCase();
+	if (command === `title`) {
+        if (message.member.voice.channel) {
+            const connection = await message.member.voice.channel.join();
+            connection.play('title.mp3');
+        }
+
+        message.channel.send("Erledigt!")
+    }
+
+    if (command === `end`) {
+        if (message.member.voice.channel) {
+            const connection = await message.member.voice.channel.join();
+            connection.disconnect();
+        }
+        
+    }
+
+
+
+
+});
+
+  
+
 
   
 client.login(config.BOT_TOKEN);
