@@ -15,6 +15,9 @@ const HelpEmbed = new Discord.MessageEmbed()
     .addField("kalt", "brrrrrrrrrrrrrrrrrrr.")
     .addField("eiskalt", "...lieber nicht xD")
     .addField("server", "Zeigt dir Informationen über den Server an.")
+    .addField("title", "Spielt die Legendäre OOBE-Musik von Windows XP namens title.wma ab.")
+    .addField("end", "keine ahnung was ich hier schreiben soll auf jeden fall verlässt der bot den sprachkanal")
+
     .addField("help", "Zeigt dir diese Liste an.")
   
 client.on('ready', () => {
@@ -79,16 +82,21 @@ client.on("message", function(message) {
         if (message.member.voice.channel) {
             const connection = await message.member.voice.channel.join();
             connection.play('title.mp3');
+            message.channel.send("Erledigt!")
         }
 
-        message.channel.send("Erledigt!")
+        else 
+        message.channel.send("Du musst in einem Sprachkanal sein, um diesen Befehl zu benutzen!")
     }
 
     if (command === `end`) {
         if (message.member.voice.channel) {
             const connection = await message.member.voice.channel.join();
             connection.disconnect();
+            message.channel.send("Erledigt!")
         }
+        else 
+        message.channel.send ("Du musst in einem Sprachkanal sein, um diesen Befehl zu benutzen!")
         
     }
 
