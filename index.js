@@ -74,6 +74,8 @@ client.on("message", function(message) {
         return message.delete().catch(O_o=>{});
     } 
     
+    // else message.channel.send("Error 404: Command not found");
+    
 
 
 
