@@ -75,13 +75,7 @@ client.on("message", function(message) {
     } 
     
     // else message.channel.send("Error 404: Command not found");
-    
 
-
-
-
-    
-   
   });
 
   client.on('message', async message => {
@@ -114,9 +108,5 @@ client.on("message", function(message) {
     }
 
 });
-
-  
-
-
-  
+ 
 client.login(config.BOT_TOKEN);
