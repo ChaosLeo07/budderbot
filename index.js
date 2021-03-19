@@ -26,7 +26,7 @@ const HelpEmbed = new Discord.MessageEmbed()
     .addField("leave", "keine ahnung was ich hier schreiben soll auf jeden fall verlässt der bot den sprachkanal")
 
     .addField("help", "Zeigt dir diese Liste an.")
-  
+
 client.on('ready', () => {
     console.log('Bot erfolgreich gestartet!');
     client.user.setPresence({
@@ -52,6 +52,8 @@ client.on("message", function(message) {
     if (command === "help") {
         message.channel.send(HelpEmbed)  
     }
+
+
 
     if (command === "beep") {
         message.channel.send("boop")
