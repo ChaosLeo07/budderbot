@@ -4,6 +4,11 @@ const client = new Discord.Client();
 const fs = require('fs');
 const prefix = './';
 
+function do8Ball() {
+    var rand = [':8ball: Denk nicht mal dran.', ':8ball: Wahr', ':8ball: Unmöglich.', ':8ball: Aber sicher doch!', ':8ball: Eher nicht.', ':8ball: Wahr.', ':8ball: Falsch.', ':8ball: Meine Quellen sagen nein.', ':8ball: Frag später nochmal', ':8ball: Kann grad nichts vorhersagen', ':8ball: Konzentrier dich und frag nocheinmal.'];
+
+    return rand[Math.floor(Math.random()*rand.length)];
+}
 
 
 const HelpEmbed = new Discord.MessageEmbed()
@@ -13,6 +18,7 @@ const HelpEmbed = new Discord.MessageEmbed()
     .addField("echo", "Wie der Name schon sagt. | Benutzung: ./echo text")
     .addField("warm", "AAAAAAAAAAAAAAAA.")
     .addField("beep", "boop.")
+    .addField("8ball", "Wahrsagerdings. | Benutzung: ./8ball text")
     .addField("kalt", "brrrrrrrrrrrrrrrrrrr.")
     .addField("eiskalt", "...lieber nicht xD")
     .addField("server", "Zeigt dir Informationen über den Server an.")
@@ -74,6 +80,10 @@ client.on("message", function(message) {
         message.channel.send(echoembed);
         return message.delete().catch(O_o=>{});
     } 
+
+    if (command === "8ball") {
+        message.channel.send(do8Ball())
+      }
     
     // else message.channel.send("Error 404: Command not found");
 
