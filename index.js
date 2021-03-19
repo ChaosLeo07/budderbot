@@ -1,8 +1,8 @@
 const Discord = require("discord.js");
 const config = require("./config.json");
 const client = new Discord.Client();
-const prefix = '$/';
 const fs = require('fs');
+const prefix = './';
 
 
 
@@ -15,7 +15,7 @@ const HelpEmbed = new Discord.MessageEmbed()
     .addField("kalt", "brrrrrrrrrrrrrrrrrrr.")
     .addField("eiskalt", "...lieber nicht xD")
     .addField("server", "Zeigt dir Informationen über den Server an.")
-    .addField("title", "Spielt die Legendäre OOBE-Musik von Windows XP namens title.wma ab.")
+    .addField("title", "Spielt die Legendäre OOBE-Musik aus Windows XP namens title.wma ab.")
     .addField("leave", "keine ahnung was ich hier schreiben soll auf jeden fall verlässt der bot den sprachkanal")
 
     .addField("help", "Zeigt dir diese Liste an.")
@@ -25,7 +25,7 @@ client.on('ready', () => {
     client.user.setPresence({
         status: 'online',
         activity: {
-            name: 'auf 2 Servern | Prefix = "./"',
+            name: 'auf 3 Servern | Prefix = "./"',
             type: 'PLAYING'
         }
     })
@@ -33,7 +33,7 @@ client.on('ready', () => {
 
 client.on("message", function(message) {
     if (message.author.bot) return;
-    if (message.content.startsWith(prefix)) return;
+    if (!message.content.startsWith(prefix)) return;
     const commandBody = message.content.slice(prefix.length);
     const args = commandBody.split(' ');
     const command = args.shift().toLowerCase();
@@ -66,6 +66,17 @@ client.on("message", function(message) {
         message.channel.send(`Serverinfos:\nServername: ${message.guild.name}\nMitgliederzahl: ${message.guild.memberCount}`);
     }
 
+    if (command === "echo") {
+        var textToEcho = args.join(" ");
+        const echoembed = new Discord.MessageEmbed()
+        .setTitle(`${textToEcho}`)
+        message.channel.send(echoembed);
+        return message.delete().catch(O_o=>{});
+    } 
+    
+
+
+
 
     
    
@@ -74,7 +85,7 @@ client.on("message", function(message) {
   client.on('message', async message => {
 	
     if (message.author.bot) return;
-    if (message.content.startsWith(prefix)) return;
+    if (!message.content.startsWith(prefix)) return;
     const commandBody = message.content.slice(prefix.length);
     const args = commandBody.split(' ');
     const command = args.shift().toLowerCase();
