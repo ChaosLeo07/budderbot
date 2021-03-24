@@ -49,33 +49,33 @@ client.on("message", function(message) {
         message.channel.send(`Pong! Die Latenz beträgt im moment ${timeTaken}ms.`);
       }
         
-    if (command === "help") {
+    else if (command === "help") {
         message.channel.send(HelpEmbed)  
     }
 
 
 
-    if (command === "beep") {
+    else if (command === "beep") {
         message.channel.send("boop")
     }
 
-    if (command === "eiskalt") {
+    else if (command === "eiskalt") {
         message.channel.send("*stirbt*")
     }
 
-    if (command === "warm") {
+    else if (command === "warm") {
         message.channel.send("AAAAAAAAA IST DAS HEIß!!")
     }
 
-    if (command === "kalt") {
+    else if (command === "kalt") {
         message.channel.send("brrrrrrr k-k-KALT!")
     }
     
-    if (command === `server`) {
+    else if (command === `server`) {
         message.channel.send(`Serverinfos:\nServername: ${message.guild.name}\nMitgliederzahl: ${message.guild.memberCount}`);
     }
 
-    if (command === "echo") {
+    else if (command === "echo") {
         var textToEcho = args.join(" ");
         const echoembed = new Discord.MessageEmbed()
         .setTitle(`${textToEcho}`)
@@ -83,11 +83,11 @@ client.on("message", function(message) {
         return message.delete().catch(O_o=>{});
     } 
 
-    if (command === "8ball") {
+    else if (command === "8ball") {
         message.channel.send(do8Ball())
       }
     
-    // else message.channel.send("Error 404: Command not found");
+    else message.channel.send("Error 404: Command not found");
 
   });
 
