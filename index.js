@@ -32,7 +32,7 @@ client.on('ready', () => {
     client.user.setPresence({
         status: 'online',
         activity: {
-            name: 'auf 3 Servern | Prefix = "./"',
+            name: 'Prefix = "./" | auf 3 Servern',
             type: 'PLAYING'
         }
     })
