@@ -87,6 +87,12 @@ client.on("message", function(message) {
         message.channel.send(do8Ball())
       }
     
+    else if (command === "ccp") {
+        return message.delete().catch(O_o=>{});
+        message.channel.send("(我们的)   +20 Social Credits have been added to your account! Good work citizen, and glory to the CCP! Remember to redeem your food units after 12:00 P.M. using coupon code “ALCPQX”! Please visit the your local [People's Glorious Department of Ration Distribution] headquarters in order to redeem your rations")
+        message.channel.send("https://cdn.discordapp.com/attachments/737577462581690399/859342059844534302/video0.mp4")
+    }
+    
     else message.channel.send("Error 404: Command not found");
 
   });
